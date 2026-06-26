@@ -1,0 +1,9 @@
+flask==3.1.1
+flask-cors==6.0.2
+earthengine-api==0.1.344
+torch>=2.0.0
+torchvision>=0.15.0
+Pillow>=9.0.0
+numpy>=1.22.0
+python-dotenv>=0.19.0
+requests>=2.28.0

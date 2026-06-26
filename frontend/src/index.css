@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+@reference "tailwindcss";
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-slate-950/55 backdrop-blur-xl border border-white/10 rounded-2xl shadow-lg;
+  }
+
+  .glass-card-soft {
+    @apply bg-slate-950/35 backdrop-blur-xl border border-white/10 rounded-2xl;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-white;
+    @apply bg-gradient-to-r from-cyan-500 via-sky-500 to-indigo-600;
+    @apply shadow-md shadow-cyan-500/10;
+    @apply transition duration-300 ease-in-out;
+    @apply hover:-translate-y-0.5 hover:shadow-lg hover:shadow-cyan-500/15;
+    @apply active:translate-y-0 active:scale-[0.99];
+    @apply disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-medium;
+    @apply bg-white/10 text-white border border-white/10;
+    @apply transition duration-300 ease-in-out;
+    @apply hover:bg-white/15 hover:-translate-y-0.5;
+    @apply active:translate-y-0 active:scale-[0.99];
+    @apply disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .select-modern {
+    @apply w-full rounded-xl border border-white/10 bg-slate-950/40 text-white;
+    @apply px-3 py-2.5;
+    @apply outline-none transition duration-300 ease-in-out;
+    @apply focus:border-cyan-400/40 focus:ring-2 focus:ring-cyan-400/20;
+    @apply disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .label-modern {
+    @apply text-xs font-medium tracking-wide text-slate-200/90;
+  }
+
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.10), transparent);
+    animation: shimmer 1.2s infinite;
+  }
+
+  @keyframes shimmer {
+    100% { transform: translateX(100%); }
+  }
+}
+
+/* ── Leaflet popup dark theme ── */
+.leaflet-popup-content-wrapper {
+  background: rgba(15, 23, 42, 0.96) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+  color: #e2e8f0 !important;
+  backdrop-filter: blur(16px) !important;
+}
+.leaflet-popup-tip {
+  background: rgba(15, 23, 42, 0.96) !important;
+}
+.leaflet-popup-close-button {
+  color: #64748b !important;
+  font-size: 16px !important;
+  top: 6px !important;
+  right: 8px !important;
+}
+.leaflet-popup-close-button:hover { color: #e2e8f0 !important; }
+.leaflet-popup-content { margin: 12px 16px !important; }
